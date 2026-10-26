@@ -154,7 +154,32 @@ body.drawer-open .sidebar-handle-arrow{transform:rotate(180deg)}
 body.drawer-open .sidebar-handle{right:min(100%,600px)}
 .sidebar-handle{padding:12px 7px;font-size:12px}
 }
-#lengthControl[hidden]{display:none!important}</style></head><body><nav class="topnav" aria-label="Navigation"><button id="navGame" class="active" type="button">🎮 Jouer</button><button id="navEnglish" type="button">🇬🇧 Motus English</button><button id="navDictionary" type="button">📖 Dictionnaire & Solver</button></nav><main id="gamePage"><header><div><h1>MOTUS</h1><small>Jeu autonome · Version 1.30</small></div><div style="text-align:right"><button id="soundToggle" type="button" title="Activer ou couper les sons" aria-label="Couper les sons" aria-pressed="true">🔊 Son</button><label style="display:inline-flex;align-items:center;gap:4px;margin-left:8px;font-size:12px">Volume <input id="soundVolume" type="range" min="0" max="100" step="5" value="35" style="width:85px;vertical-align:middle"><span id="volumeValue">35</span></label><br><strong id="timer">00:00</strong><br><small id="clockStatus">En attente</small></div></header><section class="stats"><div class="stat"><strong id="found">0 / 0</strong><small>Trouvés / proposés</small></div><div class="stat"><strong id="rate">0 %</strong><small>Réussite</small></div><div class="stat"><strong id="average">—</strong><small>Coups moyens</small></div></section><div class="controls"><label id="lengthControl">Nombre de lettres <select id="length"><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></label><label>Mode <select id="mode"><option value="daily">Mot du jour</option><option value="sequence">Suite du jour</option><option value="ten">10 du jour</option><option value="normal">Normal</option><option value="wordle">Wordle</option></select></label></div><div class="row"><small id="dailyInfo"></small><small id="number">Mot n° 1</small><small id="attempts">Tentatives : 0 / 6</small></div><div class="grid" id="grid"></div><div id="result" class="result" hidden></div><input id="entry" class="capture" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Saisie du mot directement dans la grille" maxlength="10" inputmode="text"><div class="message" id="message" aria-live="polite"></div><div class="keyboard" id="keyboard"></div><div class="legend"><span><i class="swatch" style="background:#c82834"></i>Bien placée</span><span><i class="swatch" style="background:#e6b52b"></i>Mal placée</span><span><i class="swatch" style="background:#216ca9"></i>Absente</span></div><section class="history-section"><h3>Historique des parties <small style="font-weight:normal;font-size:12px;color:#526c81">(mode sélectionné · aujourd’hui)</small></h3><div class="table-scroll"><table><thead><tr><th>Mot et définition</th><th>Résultat</th><th>Coups</th><th>Temps</th></tr></thead><tbody id="history"></tbody></table></div></section><details><summary><strong>Règles du dictionnaire</strong></summary><div class="table-scroll"><table><thead><tr><th>Type</th><th>Proposition</th><th>Solution</th></tr></thead><tbody><tr><td>Nom singulier</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Nom pluriel</td><td>✓ Oui</td><td>✗ Non</td></tr><tr><td>Verbe infinitif</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Verbe conjugué</td><td>✓ Oui</td><td>✗ Non</td></tr><tr><td>Adjectif</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Adverbe</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Nom propre</td><td>✗ Non</td><td>✗ Non</td></tr></tbody></table></div></details><footer>Version 1.30 : dictionnaire ODS 9 + Lexique 4.1 avec définitions courtes pour certains mots. Les propositions sont vérifiées ; les solutions sont issues de l’ODS 9 avec filtrage grammatical du lexique ; les conjugaisons et pluriels restent possibles en propositions. Les noms propres sont exclus. Première lettre fixe dans tous les modes, y compris Wordle. Les statistiques sont conservées localement dans ce navigateur. Aucun compte ni serveur requis.</footer></main><button id="sidebarHandle" class="sidebar-handle" type="button" aria-label="Ouvrir le dictionnaire et le Solver" aria-expanded="false" aria-controls="dictionaryPage"><span class="sidebar-handle-icon">📖</span><span class="sidebar-handle-label">Dictionnaire &amp; Solver</span><span class="sidebar-handle-arrow">❮</span></button><section id="dictionaryPage" class="dictionary-page" role="complementary" aria-label="Dictionnaire et Solver"><button id="closeDictionary" type="button" aria-label="Fermer le volet" class="drawer-close">✕ Fermer</button>
+#lengthControl[hidden]{display:none!important}
+/* v1.31 : en-tête de partie et clavier AZERTY agrandi */
+main>.row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:12px;margin:9px 0 6px}
+main>.row>#dailyInfo{justify-self:start}
+main>.row>#attempts{justify-self:end;text-align:right}
+.round-summary{justify-self:center;text-align:center;color:#778b9d;line-height:1.35;min-width:245px}
+#roundTitle{font-size:clamp(18px,1.7vw,26px);font-weight:400;white-space:nowrap}
+.round-summary-meta{font-size:clamp(15px,1.35vw,22px);display:flex;gap:12px;justify-content:center;align-items:baseline;margin-top:4px;white-space:nowrap}
+.round-summary-meta strong{font-weight:600}
+.round-separator{font-weight:400}
+.keyboard{max-width:1050px!important;gap:7px!important;margin:14px auto 8px!important}
+.keyrow{gap:clamp(4px,.55vw,9px)!important}
+.key{width:clamp(38px,4.4vw,75px)!important;height:clamp(45px,5.7vh,66px)!important;font-size:clamp(16px,1.35vw,23px)!important;border-radius:6px}
+.keyrow button:not(.key){font-size:clamp(14px,1.1vw,19px);min-height:40px}
+@media(max-width:720px){
+ main>.row{grid-template-columns:1fr auto;row-gap:6px}
+ main>.row>#dailyInfo{grid-column:1;grid-row:2}
+ main>.row>#attempts{grid-column:2;grid-row:2}
+ .round-summary{grid-column:1/-1;grid-row:1;min-width:0}
+ #roundTitle{font-size:19px}
+ .round-summary-meta{font-size:16px}
+ .keyboard{max-width:100%!important;gap:5px!important}
+ .keyrow{gap:2px!important}
+ .key{width:min(8.8vw,43px)!important;height:clamp(38px,9vw,47px)!important;font-size:14px!important}
+}
+</style></head><body><nav class="topnav" aria-label="Navigation"><button id="navGame" class="active" type="button">🎮 Jouer</button><button id="navEnglish" type="button">🇬🇧 Motus English</button><button id="navDictionary" type="button">📖 Dictionnaire & Solver</button></nav><main id="gamePage"><header><div><h1>MOTUS</h1><small>Jeu autonome · Version 1.35</small></div><div style="text-align:right"><button id="soundToggle" type="button" title="Activer ou couper les sons" aria-label="Couper les sons" aria-pressed="true">🔊 Son</button><label style="display:inline-flex;align-items:center;gap:4px;margin-left:8px;font-size:12px">Volume <input id="soundVolume" type="range" min="0" max="100" step="5" value="35" style="width:85px;vertical-align:middle"><span id="volumeValue">35</span></label><br><strong id="timer">00:00</strong><br><small id="clockStatus">En attente</small></div></header><section class="stats"><div class="stat"><strong id="found">0 / 0</strong><small>Trouvés / proposés</small></div><div class="stat"><strong id="rate">0 %</strong><small>Réussite</small></div><div class="stat"><strong id="average">—</strong><small>Coups moyens</small></div></section><div class="controls"><label id="lengthControl">Nombre de lettres <select id="length"><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></label><label>Mode <select id="mode"><option value="daily">Mot du jour</option><option value="sequence">Suite du jour</option><option value="ten">10 du jour</option><option value="normal">Normal</option><option value="wordle">Wordle</option></select></label></div><div class="row"><small id="dailyInfo"></small><div id="number" class="round-summary" aria-live="polite"><div id="roundTitle">Mot du jour</div><div class="round-summary-meta"><strong>Mots trouvés : <span id="roundFound">0/0</span></strong><span class="round-separator">–</span><span id="roundElapsed">00:00</span></div></div><small id="attempts">Tentatives : 0 / 6</small></div><div class="grid" id="grid"></div><div id="result" class="result" hidden></div><input id="entry" class="capture" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Saisie du mot directement dans la grille" maxlength="10" inputmode="text"><div class="message" id="message" aria-live="polite"></div><div class="keyboard" id="keyboard"></div><div class="legend"><span><i class="swatch" style="background:#c82834"></i>Bien placée</span><span><i class="swatch" style="background:#e6b52b"></i>Mal placée</span><span><i class="swatch" style="background:#216ca9"></i>Absente</span></div><section class="history-section"><h3>Historique des parties <small style="font-weight:normal;font-size:12px;color:#526c81">(mode sélectionné · aujourd’hui)</small></h3><div class="table-scroll"><table><thead><tr><th>Mot et définition</th><th>Résultat</th><th>Coups</th><th>Temps</th></tr></thead><tbody id="history"></tbody></table></div></section><details><summary><strong>Règles du dictionnaire</strong></summary><div class="table-scroll"><table><thead><tr><th>Type</th><th>Proposition</th><th>Solution</th></tr></thead><tbody><tr><td>Nom singulier</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Nom pluriel</td><td>✓ Oui</td><td>✗ Non</td></tr><tr><td>Verbe infinitif</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Verbe conjugué</td><td>✓ Oui</td><td>✗ Non</td></tr><tr><td>Adjectif</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Adverbe</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Nom propre</td><td>✗ Non</td><td>✗ Non</td></tr></tbody></table></div></details><footer>Version 1.35 : dictionnaire ODS 9 + Lexique 4.1 avec définitions courtes pour certains mots. Les propositions sont vérifiées ; les solutions sont issues de l’ODS 9 avec filtrage grammatical du lexique ; les conjugaisons et pluriels restent possibles en propositions. Les noms propres sont exclus. Première lettre fixe dans tous les modes, y compris Wordle. Les statistiques sont conservées localement dans ce navigateur. Aucun compte ni serveur requis.</footer></main><button id="sidebarHandle" class="sidebar-handle" type="button" aria-label="Ouvrir le dictionnaire et le Solver" aria-expanded="false" aria-controls="dictionaryPage"><span class="sidebar-handle-icon">📖</span><span class="sidebar-handle-label">Dictionnaire &amp; Solver</span><span class="sidebar-handle-arrow">❮</span></button><section id="dictionaryPage" class="dictionary-page" role="complementary" aria-label="Dictionnaire et Solver"><button id="closeDictionary" type="button" aria-label="Fermer le volet" class="drawer-close">✕ Fermer</button>
  <div class="dict-head"><div><h1>DICTIONNAIRE</h1><p class="muted">Recherche de mots et assistant de résolution Motus · 6 à 10 lettres</p></div><div class="dict-pill" id="dictPill">ODS 9 + Lexique 4.1</div></div>
  <div class="dict-fields" style="margin:12px 0"><label>Langue du dictionnaire <select id="dictLanguage"><option value="fr">🇫🇷 Français</option><option value="en">🇬🇧 English</option></select></label></div><div class="dict-tabs"><button id="dictSearchTab" class="active" type="button">🔎 Recherche</button><button id="dictSolverTab" type="button">🧩 Solver</button></div>
  <section id="dictSearchPane"><div class="dict-panel"><h2>Rechercher un mot</h2><p class="muted">Saisis un mot entier ou quelques lettres. Le caractère <code>?</code> remplace une lettre inconnue.</p><div class="dict-fields"><label>Mot ou motif<input id="dictQuery" type="search" placeholder="Ex. INCOLLABLE ou IM?LA?ABLE" autocomplete="off" spellcheck="false"></label><label>Longueur<select id="dictLength"><option value="0">Toutes (6–10)</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></label><label>Afficher<select id="dictSource"><option value="all">Toutes les propositions</option><option value="solutions">Solutions possibles</option></select></label></div><div class="dict-actions"><button id="dictSearchBtn" type="button">Rechercher</button><button id="dictClearBtn" class="secondary" type="button">Effacer</button></div></div><div id="dictSearchCount" class="dict-count" aria-live="polite">Saisis un mot pour commencer.</div><div id="dictSearchResults" class="dict-results"></div><button id="dictMore" class="secondary" type="button" hidden>Afficher davantage</button></section>
@@ -188,11 +213,11 @@ function applyGameLanguage(lang){
  history=Array.isArray(state.history)?state.history:[];
  used=state.used||{};completed=state.completed||{};
  $('gamePage').querySelector('h1').textContent=lang==='fr'?'MOTUS':'MOTUS ENGLISH';
- $('gamePage').querySelector('header small').textContent=lang==='fr'?'Jeu autonome · Version 1.30':'English · Common words & Aviation vocabulary · AZERTY';
+ $('gamePage').querySelector('header small').textContent=lang==='fr'?'Jeu autonome · Version 1.35':'English · Common words & Aviation vocabulary · AZERTY';
  $('gamePage').querySelector('footer').textContent=lang==='fr'?
- 'Version 1.30 : ODS 9 + Lexique 4.1. Historique et statistiques séparés par langue, mode, longueur et date.':
- 'Version 1.30 : vocabulaire anglais courant et aéronautique, clavier AZERTY. Propositions issues du dictionnaire anglais intégré. Définitions anglaises et traduction française pour les termes aéronautiques. Historique indépendant.';
- newGame();
+ 'Version 1.35 : ODS 9 + Lexique 4.1. Historique et statistiques séparés par langue, mode, longueur et date.':
+ 'Version 1.35 : vocabulaire anglais courant et aéronautique, clavier AZERTY. Propositions issues du dictionnaire anglais intégré. Définitions anglaises et traduction française pour les termes aéronautiques. Historique indépendant.';
+ if(!restoreActiveRound())newGame();
 }
 let history=Array.isArray(saved.history)?saved.history:[],used=saved.used||{},completed=saved.completed||{},length=6,mode='normal',answer='',guesses=[],started=null,elapsed=0,ended=false,slot=0,rounds=1,series=0,seriesScore=0,advanceTimer=null,seriesResults=[];
 // Effets sonores générés localement : aucune ressource audio externe.
@@ -261,6 +286,47 @@ const fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(
 const today=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Paris',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 function hash(s){let h=2166136261;for(const c of s){h=Math.imul(h^c.charCodeAt(0),16777619)}return h>>>0}
 function persist(){try{localStorage.setItem(gameLanguage==='fr'?frenchStoreKey:englishStoreKey,JSON.stringify({history,used,completed}))}catch{}}
+// Sauvegarde instantanée de la partie active, distincte pour chaque langue.
+const activeRoundKey=lang=>'motus-active-round-v135-'+lang;
+function saveActiveRound(){
+ if(!answer)return;
+ const state={date:today(),mode,length,slot,rounds,answer,guesses:[...guesses],
+  draft:[...draft],draftCursor,elapsed:currentSeconds(),ended,
+  seriesResults:[...seriesResults]};
+ try{localStorage.setItem(activeRoundKey(gameLanguage),JSON.stringify(state))}catch{}
+}
+function restoreActiveRound(){
+ let state;
+ try{state=JSON.parse(localStorage.getItem(activeRoundKey(gameLanguage))||'null')}catch{return false}
+ if(!state||state.date!==today()||!['daily','ten','sequence','normal','wordle'].includes(state.mode))return false;
+ const n=Number(state.length),modeSaved=state.mode,roundSlot=Number(state.slot);
+ if(!Number.isInteger(n)||n<6||n>10||!Number.isInteger(roundSlot)||roundSlot<0||roundSlot>9)return false;
+ if(!Array.isArray(state.guesses)||state.guesses.length>6)return false;
+ if(!state.guesses.every(w=>typeof w==='string'&&w.length===n&&allowed[String(n)].has(w)))return false;
+ if(typeof state.answer!=='string'||!solutions[String(n)].includes(state.answer))return false;
+ // Vérifier que les tirages quotidiens correspondent encore au mot sauvegardé.
+ const oldMode=mode,oldLength=length,oldSlot=slot;
+ mode=modeSaved;length=n;slot=roundSlot;
+ const expected=(mode==='daily'||mode==='ten'||mode==='sequence')?pick():state.answer;
+ if(state.answer!==expected){mode=oldMode;length=oldLength;slot=oldSlot;return false}
+ answer=state.answer;guesses=state.guesses.slice();rounds=mode==='ten'?10:mode==='sequence'?5:1;
+ elapsed=Math.max(0,Math.floor(Number(state.elapsed)||0));
+ ended=!!state.ended;started=null;
+ seriesResults=Array.isArray(state.seriesResults)?state.seriesResults:[];
+ resetDraft();
+ if(Array.isArray(state.draft)&&state.draft.length===length){
+  draft=state.draft.map((v,i)=>i===0?answer[0]:(typeof v==='string'&&/^[A-Z]?$/.test(v)?v:''));
+  draftCursor=Math.max(1,Math.min(length,Number(state.draftCursor)||1));
+  $('entry').value=draft.join('');
+ }
+ $('mode').value=mode;$('length').value=String(length);
+ $('lengthControl').hidden=mode==='daily';
+ render();
+ if(!ended&&state.elapsed>0)started=Date.now()-elapsed*1000;
+ if(ended&&(mode==='ten'||mode==='sequence')&&slot+1<rounds)scheduleAdvance();
+ return true;
+}
+
 // Les tirages quotidiens sont indépendants de l'historique et identiques sur tous les navigateurs.
 // Conserver ces listes de référence lors de futures mises à jour des dictionnaires.
 const dailyFrenchPools=Object.fromEntries(Object.entries(frenchSolutions).map(([k,v])=>[k,v.slice()]));
@@ -268,15 +334,50 @@ const dailyEnglishPools=Object.fromEntries(Object.entries(englishSolutions).map(
 // Une longueur quotidienne commune à tous, tirée de manière déterministe (6 à 10).
 // Le choix ne dépend ni du navigateur ni de l'historique local.
 function dailyLength(){return 6+hash('motus|longueur-du-jour|'+today()+'|'+gameLanguage)%5}
-function pick(){const k=String(length),pool=solutions[k];if(mode==='daily'||mode==='ten'||mode==='sequence'){const dailyPool=(gameLanguage==='fr'?dailyFrenchPools:dailyEnglishPools)[k];return dailyPool[(hash(today()+'|'+gameLanguage+'|'+mode+'|'+k)%dailyPool.length+slot)%dailyPool.length];}const usedKey=k;let seen=Array.isArray(used[usedKey])?used[usedKey]:[];let candidates=pool.filter(w=>!seen.includes(w));if(!candidates.length){seen=[];candidates=pool.slice()}const w=candidates[Math.floor(Math.random()*candidates.length)];used[usedKey]=[...seen,w];persist();return w}
+// Tirage quotidien pseudo-aléatoire stable : un ordre mélangé par date, langue, mode et longueur.
+// Contrairement à un simple index + slot, les mots suivants ne suivent pas l'ordre alphabétique.
+function dailyShuffledPool(k){
+ const pool=(gameLanguage==='fr'?dailyFrenchPools:dailyEnglishPools)[k];
+ const seed=hash('motus|serie-melangee-v1|'+today()+'|'+gameLanguage+'|'+mode+'|'+k);
+ const shuffled=pool.slice();
+ let state=seed||1;
+ function nextRandom(){state^=state<<13;state^=state>>>17;state^=state<<5;return (state>>>0)/4294967296}
+ // Fisher-Yates déterministe, identique pour tous les joueurs.
+ for(let i=shuffled.length-1;i>0;i--){const j=Math.floor(nextRandom()*(i+1));[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]]}
+ return shuffled;
+}
+function pick(){
+ const k=String(length),pool=solutions[k];
+ if(mode==='daily'){
+  const dailyPool=(gameLanguage==='fr'?dailyFrenchPools:dailyEnglishPools)[k];
+  return dailyPool[hash(today()+'|'+gameLanguage+'|'+mode+'|'+k)%dailyPool.length];
+ }
+ if(mode==='ten'||mode==='sequence'){
+  const shuffled=dailyShuffledPool(k);
+  // Suite du jour : une longueur différente à chaque tour ; 10 du jour : 10 mots distincts.
+  return shuffled[mode==='ten'?slot%shuffled.length:0];
+ }
+ const usedKey=k;
+ let seen=Array.isArray(used[usedKey])?used[usedKey]:[];
+ let candidates=pool.filter(w=>!seen.includes(w));
+ if(!candidates.length){seen=[];candidates=pool.slice()}
+ const w=candidates[Math.floor(Math.random()*candidates.length)];
+ used[usedKey]=[...seen,w];persist();return w;
+}
 function evaluate(w){const r=Array(length).fill('absent'),counts={};for(let i=0;i<length;i++){if(w[i]===answer[i])r[i]='correct';else counts[answer[i]]=(counts[answer[i]]||0)+1}for(let i=0;i<length;i++)if(r[i]==='absent'&&counts[w[i]]>0){r[i]='present';counts[w[i]]--}return r}
 function currentSeconds(){return started===null?elapsed:Math.floor((Date.now()-started)/1000)}
 function startClock(){if(started===null&&!ended)started=Date.now()-elapsed*1000}
-function record(success){if(ended)return;const token=soundRoundToken;setTimeout(()=>{if(token!==soundRoundToken)return;stopRevealSounds();sound(success?'win':'lose')},Math.min(1300,length*320+120));elapsed=currentSeconds();started=null;ended=true;history.unshift({word:answer,success,attempts:guesses.length,seconds:elapsed,date:today(),mode,length,slot});if(mode==='daily'||mode==='ten'||mode==='sequence')completed[[today(),mode,length,slot].join('|')]={answer,guesses:[...guesses],elapsed,success};persist();seriesResults.push({success,attempts:guesses.length,seconds:elapsed});render();scheduleAdvance()}
+function record(success){if(ended)return;const token=soundRoundToken;setTimeout(()=>{if(token!==soundRoundToken)return;stopRevealSounds();sound(success?'win':'lose')},Math.min(1300,length*320+120));elapsed=currentSeconds();started=null;ended=true;history.unshift({word:answer,success,attempts:guesses.length,seconds:elapsed,date:today(),mode,length,slot});if(mode==='daily'||mode==='ten'||mode==='sequence')completed[[today(),mode,length,slot].join('|')]={answer,guesses:[...guesses],elapsed,success};persist();seriesResults.push({success,attempts:guesses.length,seconds:elapsed});saveActiveRound();render();scheduleAdvance()}
 let draft=[],draftCursor=1;
-function resetDraft(){draft=Array(length).fill('');draft[0]=answer[0];for(const w of guesses){const ev=evaluate(w);for(let i=1;i<length;i++)if(ev[i]==='correct')draft[i]=w[i]}draftCursor=nextDraftSlot(1);$('entry').value=draft.join('')}
-function nextDraftSlot(from){for(let i=from;i<length;i++)if(!draft[i])return i;return length}
-function initRound(){soundRoundToken++;stopRevealSounds();if(advanceTimer){clearTimeout(advanceTimer);advanceTimer=null}answer=pick();guesses=[];elapsed=0;started=null;ended=false;resetDraft();$('message').textContent='';const k=[today(),mode,length,slot].join('|');if(completed[k] && solutions[String(length)].includes(completed[k].answer)){const c=completed[k];answer=c.answer;guesses=c.guesses;elapsed=c.elapsed;ended=true}render();if(!ended)$('entry').focus()}
+function resetDraft(){
+ draft=Array(length).fill('');draft[0]=answer[0];
+ for(const w of guesses){const ev=evaluate(w);for(let i=1;i<length;i++)if(ev[i]==='correct')draft[i]=w[i]}
+ // Les lettres rouges sont des suggestions préremplies, pas des cases verrouillées.
+ // Le curseur recommence toujours à la deuxième case pour pouvoir les remplacer directement.
+ draftCursor=1;$('entry').value=draft.join('');
+}
+function nextDraftSlot(from){return Math.min(from,length)}
+function initRound(){soundRoundToken++;stopRevealSounds();if(advanceTimer){clearTimeout(advanceTimer);advanceTimer=null}answer=pick();guesses=[];elapsed=0;started=null;ended=false;resetDraft();$('message').textContent='';const k=[today(),mode,length,slot].join('|');if(completed[k] && solutions[String(length)].includes(completed[k].answer)){const c=completed[k];answer=c.answer;guesses=c.guesses;elapsed=c.elapsed;ended=true}render();saveActiveRound();if(!ended)$('entry').focus()}
 function newGame(){seriesResults=[];length=Number($('length').value);mode=$('mode').value;slot=0;rounds=mode==='ten'?10:mode==='sequence'?5:1;
 if(mode==='daily')length=dailyLength();
 else if(mode==='sequence')length=6;
@@ -291,7 +392,7 @@ function appendLetter(ch){
  draft[draftCursor]=ch;
  draftCursor=nextDraftSlot(draftCursor+1);
  $('entry').value=draft.join('');
- sound('type');startClock();$('message').textContent='';render();
+ sound('type');startClock();$('message').textContent='';saveActiveRound();render();
 }
 function removeLetter(){
  if(ended)return;
@@ -300,7 +401,7 @@ function removeLetter(){
  if(i<1)return;
  draft[i]='';draftCursor=i;
  $('entry').value=draft.join('');
- sound('erase');$('message').textContent='';render();
+ sound('erase');$('message').textContent='';saveActiveRound();render();
 }
 function submit(){
  if(ended)return;
@@ -315,7 +416,7 @@ function submit(){
  }
  startClock();guesses.push(w);playReveal(w);
  resetDraft();$('message').textContent='';
- if(w===answer||guesses.length===6)record(w===answer);else render();
+ if(w===answer||guesses.length===6)record(w===answer);else {saveActiveRound();render();}
 }
 function render(){const statuses={},grid=$('grid');grid.innerHTML='';for(const w of guesses){const ev=evaluate(w);for(let i=0;i<length;i++){const rank={absent:0,present:1,correct:2};if(!statuses[w[i]]||rank[ev[i]]>rank[statuses[w[i]]])statuses[w[i]]=ev[i]}}
 for(let r=0;r<6;r++){const row=document.createElement('div');row.className='guessrow';for(let c=0;c<length;c++){const tile=document.createElement('div');tile.className='tile';if(guesses[r]){tile.textContent=guesses[r][c];tile.classList.add(evaluate(guesses[r])[c])}else if(r===guesses.length&&!ended){
@@ -326,7 +427,14 @@ for(let r=0;r<6;r++){const row=document.createElement('div');row.className='gues
  tile.dataset.position=String(c);
  }else tile.classList.add('empty');row.append(tile)}grid.append(row)}
 $('keyboard').innerHTML='';for(const line of ['AZERTYUIOP','QSDFGHJKLM','WXCVBN']){const row=document.createElement('div');row.className='keyrow';for(const ch of line){const b=document.createElement('button');b.className='key '+(statuses[ch]||'');b.textContent=ch;b.type='button';b.disabled=ended;b.onclick=()=>{appendLetter(ch)};row.append(b)}$('keyboard').append(row)}const row=document.createElement('div');row.className='keyrow';for(const [label,fn] of [['⌫ Effacer',removeLetter],['↵ Valider',submit]]){const b=document.createElement('button');b.textContent=label;b.className='secondary';b.disabled=ended;b.onclick=fn;row.append(b)}$('keyboard').append(row);
-$('attempts').textContent='Tentatives : '+guesses.length+' / 6';$('number').textContent=(mode==='ten'||mode==='sequence'?'Mot '+(slot+1)+' / '+rounds:'Mot n° '+(history.length+1));$('dailyInfo').textContent=['daily','ten','sequence'].includes(mode)?'Tirage du '+today()+(mode==='daily'?' · '+length+' lettres':''):'';$('length').disabled=mode==='sequence'||mode==='daily';$('lengthControl').hidden=mode==='daily';$('result').hidden=!ended;
+$('attempts').textContent='Tentatives : '+guesses.length+' / 6';
+const roundNames={daily:'Mot du jour',sequence:'Suite du jour',ten:'10 du jour',normal:'Mode Normal',wordle:'Wordle'};
+$('roundTitle').textContent=(roundNames[mode]||'Motus')+' - '+length+' lettres';
+const playedToday=history.filter(h=>h.mode===mode&&h.date===today()&&(mode==='sequence'||mode==='ten'||(Number(h.length)||String(h.word||'').length)===length));
+const successful=playedToday.filter(h=>h.success).length;
+$('roundFound').textContent=successful+'/'+playedToday.length;
+
+$('roundElapsed').textContent=fmt(currentSeconds());$('dailyInfo').textContent=['daily','ten','sequence'].includes(mode)?'Tirage du '+today()+(mode==='daily'?' · '+length+' lettres':''):'';$('length').disabled=mode==='sequence'||mode==='daily';$('lengthControl').hidden=mode==='daily';$('result').hidden=!ended;
 if(ended){$('result').textContent=(guesses.includes(answer)?'Bravo, mot trouvé !':'Partie terminée')+' — Solution : '+answer+' — '+guesses.length+' tentative(s) · '+fmt(elapsed)}
 
 const wins=history.filter(h=>h.success);$('found').textContent=wins.length+' / '+history.length;$('rate').textContent=(history.length?Math.round(wins.length/history.length*100):0)+' %';$('average').textContent=wins.length?(wins.reduce((a,h)=>a+h.attempts,0)/wins.length).toFixed(1):'—';$('history').innerHTML='';const visibleHistory=history.filter(h=>{
@@ -473,7 +581,7 @@ function updateDefinitionCell(word,element,language=gameLanguage){
  });
 }
 
-function updateTimer(){$('timer').textContent=fmt(currentSeconds());$('clockStatus').textContent=ended?'Terminé':started!==null?'Chrono actif':'En attente'}
+function updateTimer(){if($('roundElapsed'))$('roundElapsed').textContent=fmt(currentSeconds());$('timer').textContent=fmt(currentSeconds());$('clockStatus').textContent=ended?'Terminé':started!==null?'Chrono actif':'En attente'}
 $('entry').addEventListener('input',e=>{e.target.value=draft.join('')});
 document.addEventListener('keydown',e=>{
  if(e.ctrlKey||e.metaKey||e.altKey)return;
@@ -490,7 +598,10 @@ $('grid').addEventListener('click',e=>{
  if(tile){const pos=Number(tile.dataset.position);if(pos>0&&pos<length)draftCursor=pos;render()}
  $('entry').focus();
 });
-$('length').onchange=newGame;$('mode').onchange=newGame;setInterval(updateTimer,250);newGame();
+$('length').onchange=newGame;$('mode').onchange=newGame;setInterval(updateTimer,250);if(!restoreActiveRound())newGame();
+window.addEventListener('pagehide',saveActiveRound);
+// Sauvegarde périodique du temps, même sans frappe.
+setInterval(()=>{if(answer&&!ended&&started!==null)saveActiveRound()},5000);
 
 // Dictionnaire et solveur : partagent les dictionnaires et les définitions du jeu.
 (function(){
@@ -498,7 +609,7 @@ const game=$('gamePage'),dictionary=$('dictionaryPage');
 function page(name){
  const showDictionary=name==='dictionary';
  const lang=name==='english'?'en':'fr';
- if(!showDictionary&&lang!==gameLanguage){persist();applyGameLanguage(lang)}
+ if(!showDictionary&&lang!==gameLanguage){saveActiveRound();persist();applyGameLanguage(lang)}
  game.hidden=false;
  dictionary.hidden=false;
  document.body.classList.toggle('drawer-open',showDictionary);
