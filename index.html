@@ -194,7 +194,8 @@ main>.row>#attempts{justify-self:end;text-align:right}
 #motusEasterEgg.eggBenoite .eggMessage{border-color:#8bca76;background:#fffdf2;transform:rotate(2deg)}
 #motusEasterEgg.eggBenoite .eggMessage strong{color:#367c43}
 #motusEasterEgg .eggConfetti.eggPetal{width:auto;height:auto;background:transparent;font-size:24px;line-height:1;border-radius:0}
-</style></head><body><nav class="topnav" aria-label="Navigation"><button id="navGame" class="active" type="button">🎮 Jouer</button><button id="navEnglish" type="button">🇬🇧 Motus English</button><button id="navDictionary" type="button">📖 Dictionnaire & Solver</button></nav><main id="gamePage"><header><div><h1>MOTUS</h1><small>Jeu autonome · Version 1.42</small></div><div style="text-align:right"><button id="soundToggle" type="button" title="Activer ou couper les sons" aria-label="Couper les sons" aria-pressed="true">🔊 Son</button><label style="display:inline-flex;align-items:center;gap:4px;margin-left:8px;font-size:12px">Volume <input id="soundVolume" type="range" min="0" max="100" step="5" value="35" style="width:85px;vertical-align:middle"><span id="volumeValue">35</span></label><br><strong id="timer">00:00</strong><br><small id="clockStatus">En attente</small></div></header><section class="stats"><div class="stat"><strong id="found">0 / 0</strong><small>Trouvés / proposés</small></div><div class="stat"><strong id="rate">0 %</strong><small>Réussite</small></div><div class="stat"><strong id="average">—</strong><small>Coups moyens</small></div></section><div class="controls"><label id="lengthControl">Nombre de lettres <select id="length"><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></label><label>Mode <select id="mode"><option value="daily">Mot du jour</option><option value="sequence">Suite du jour</option><option value="ten">10 du jour</option><option value="normal">Normal</option><option value="wordle">Wordle</option></select></label></div><div class="row"><small id="dailyInfo"></small><div id="number" class="round-summary" aria-live="polite"><div id="roundTitle">Mot du jour</div><div class="round-summary-meta"><strong>Mots trouvés : <span id="roundFound">0/0</span></strong><span class="round-separator">–</span><span id="roundElapsed">00:00</span></div></div><small id="attempts">Tentatives : 0 / 6</small></div><div class="grid" id="grid"></div><div id="result" class="result" hidden></div><input id="entry" class="capture" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Saisie du mot directement dans la grille" maxlength="10" inputmode="text"><div class="message" id="message" aria-live="polite"></div><div class="keyboard" id="keyboard"></div><div class="legend"><span><i class="swatch" style="background:#c82834"></i>Bien placée</span><span><i class="swatch" style="background:#e6b52b"></i>Mal placée</span><span><i class="swatch" style="background:#216ca9"></i>Absente</span></div><section class="history-section"><h3>Historique des parties <small style="font-weight:normal;font-size:12px;color:#526c81">(mode sélectionné · aujourd’hui)</small></h3><div class="table-scroll"><table><thead><tr><th>Mot et définition</th><th>Résultat</th><th>Coups</th><th>Temps</th></tr></thead><tbody id="history"></tbody></table></div></section><details><summary><strong>Règles du dictionnaire</strong></summary><div class="table-scroll"><table><thead><tr><th>Type</th><th>Proposition</th><th>Solution</th></tr></thead><tbody><tr><td>Nom singulier</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Nom pluriel</td><td>✓ Oui</td><td>✗ Non</td></tr><tr><td>Verbe infinitif</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Verbe conjugué</td><td>✓ Oui</td><td>✗ Non</td></tr><tr><td>Adjectif</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Adverbe</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Nom propre</td><td>✗ Non</td><td>✗ Non</td></tr></tbody></table></div></details><footer>Version 1.42 : dictionnaire ODS 9 + Lexique 4.1 avec définitions courtes pour certains mots. Les propositions sont vérifiées ; les solutions sont issues de l’ODS 9 avec filtrage grammatical du lexique ; les conjugaisons et pluriels restent possibles en propositions. Les noms propres sont exclus. Première lettre fixe dans tous les modes, y compris Wordle. Les statistiques sont conservées localement dans ce navigateur. Aucun compte ni serveur requis.</footer></main><button id="sidebarHandle" class="sidebar-handle" type="button" aria-label="Ouvrir le dictionnaire et le Solver" aria-expanded="false" aria-controls="dictionaryPage"><span class="sidebar-handle-icon">📖</span><span class="sidebar-handle-label">Dictionnaire &amp; Solver</span><span class="sidebar-handle-arrow">❮</span></button><section id="dictionaryPage" class="dictionary-page" role="complementary" aria-label="Dictionnaire et Solver"><button id="closeDictionary" type="button" aria-label="Fermer le volet" class="drawer-close">✕ Fermer</button>
+.soundProfileLabel{display:inline-flex;align-items:center;gap:5px;margin:0 6px 5px;font-size:12px;color:#174c78}.soundProfileLabel select{border:1px solid #91b1cf;border-radius:6px;padding:5px;background:#fff;color:#174c78;max-width:145px}@media(max-width:650px){.soundProfileLabel{margin:4px 2px}.soundProfileLabel select{max-width:125px}}
+</style></head><body><nav class="topnav" aria-label="Navigation"><button id="navGame" class="active" type="button">🎮 Jouer</button><button id="navEnglish" type="button">🇬🇧 Motus English</button><button id="navDictionary" type="button">📖 Dictionnaire & Solver</button></nav><main id="gamePage"><header><div><h1>MOTUS</h1><small>Jeu autonome · Version 1.43</small></div><div style="text-align:right"><button id="soundToggle" type="button" title="Activer ou couper les sons" aria-label="Couper les sons" aria-pressed="true">🔊 Son</button><label class="soundProfileLabel" for="soundProfile">Ambiance <select id="soundProfile" aria-label="Ambiance sonore"><option value="classic">Classique</option><option value="modern">Moderne</option><option value="retro">Rétro arcade</option><option value="soft">Discrète</option></select></label><label style="display:inline-flex;align-items:center;gap:4px;margin-left:8px;font-size:12px">Volume <input id="soundVolume" type="range" min="0" max="100" step="5" value="35" style="width:85px;vertical-align:middle"><span id="volumeValue">35</span></label><br><strong id="timer">00:00</strong><br><small id="clockStatus">En attente</small></div></header><section class="stats"><div class="stat"><strong id="found">0 / 0</strong><small>Trouvés / proposés</small></div><div class="stat"><strong id="rate">0 %</strong><small>Réussite</small></div><div class="stat"><strong id="average">—</strong><small>Coups moyens</small></div></section><div class="controls"><label id="lengthControl">Nombre de lettres <select id="length"><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></label><label>Mode <select id="mode"><option value="daily">Mot du jour</option><option value="sequence">Suite du jour</option><option value="ten">10 du jour</option><option value="normal">Normal</option><option value="wordle">Wordle</option></select></label></div><div class="row"><small id="dailyInfo"></small><div id="number" class="round-summary" aria-live="polite"><div id="roundTitle">Mot du jour</div><div class="round-summary-meta"><strong>Mots trouvés : <span id="roundFound">0/0</span></strong><span class="round-separator">–</span><span id="roundElapsed">00:00</span></div></div><small id="attempts">Tentatives : 0 / 6</small></div><div class="grid" id="grid"></div><div id="result" class="result" hidden></div><input id="entry" class="capture" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Saisie du mot directement dans la grille" maxlength="10" inputmode="text"><div class="message" id="message" aria-live="polite"></div><div class="keyboard" id="keyboard"></div><div class="legend"><span><i class="swatch" style="background:#c82834"></i>Bien placée</span><span><i class="swatch" style="background:#e6b52b"></i>Mal placée</span><span><i class="swatch" style="background:#216ca9"></i>Absente</span></div><section class="history-section"><h3>Historique des parties <small style="font-weight:normal;font-size:12px;color:#526c81">(mode sélectionné · aujourd’hui)</small></h3><div class="table-scroll"><table><thead><tr><th>Mot et définition</th><th>Résultat</th><th>Coups</th><th>Temps</th></tr></thead><tbody id="history"></tbody></table></div></section><details><summary><strong>Règles du dictionnaire</strong></summary><div class="table-scroll"><table><thead><tr><th>Type</th><th>Proposition</th><th>Solution</th></tr></thead><tbody><tr><td>Nom singulier</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Nom pluriel</td><td>✓ Oui</td><td>✗ Non</td></tr><tr><td>Verbe infinitif</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Verbe conjugué</td><td>✓ Oui</td><td>✗ Non</td></tr><tr><td>Adjectif</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Adverbe</td><td>✓ Oui</td><td>✓ Oui</td></tr><tr><td>Nom propre</td><td>✗ Non</td><td>✗ Non</td></tr></tbody></table></div></details><footer>Version 1.43 : dictionnaire ODS 9 + Lexique 4.1 avec définitions courtes pour certains mots. Les propositions sont vérifiées ; les solutions sont issues de l’ODS 9 avec filtrage grammatical du lexique ; les conjugaisons et pluriels restent possibles en propositions. Les noms propres sont exclus. Première lettre fixe dans tous les modes, y compris Wordle. Les statistiques sont conservées localement dans ce navigateur. Aucun compte ni serveur requis.</footer></main><button id="sidebarHandle" class="sidebar-handle" type="button" aria-label="Ouvrir le dictionnaire et le Solver" aria-expanded="false" aria-controls="dictionaryPage"><span class="sidebar-handle-icon">📖</span><span class="sidebar-handle-label">Dictionnaire &amp; Solver</span><span class="sidebar-handle-arrow">❮</span></button><section id="dictionaryPage" class="dictionary-page" role="complementary" aria-label="Dictionnaire et Solver"><button id="closeDictionary" type="button" aria-label="Fermer le volet" class="drawer-close">✕ Fermer</button>
  <div class="dict-head"><div><h1>DICTIONNAIRE</h1><p class="muted">Recherche de mots et assistant de résolution Motus · 6 à 10 lettres</p></div><div class="dict-pill" id="dictPill">ODS 9 + Lexique 4.1</div></div>
  <div class="dict-fields" style="margin:12px 0"><label>Langue du dictionnaire <select id="dictLanguage"><option value="fr">🇫🇷 Français</option><option value="en">🇬🇧 English</option></select></label></div><div class="dict-tabs"><button id="dictSearchTab" class="active" type="button">🔎 Recherche</button><button id="dictSolverTab" type="button">🧩 Solver</button></div>
  <section id="dictSearchPane"><div class="dict-panel"><h2>Rechercher un mot</h2><p class="muted">Saisis un mot entier ou quelques lettres. Le caractère <code>?</code> remplace une lettre inconnue.</p><div class="dict-fields"><label>Mot ou motif<input id="dictQuery" type="search" placeholder="Ex. INCOLLABLE ou IM?LA?ABLE" autocomplete="off" spellcheck="false"></label><label>Longueur<select id="dictLength"><option value="0">Toutes (6–10)</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></label><label>Afficher<select id="dictSource"><option value="all">Toutes les propositions</option><option value="solutions">Solutions possibles</option></select></label></div><div class="dict-actions"><button id="dictSearchBtn" type="button">Rechercher</button><button id="dictClearBtn" class="secondary" type="button">Effacer</button></div></div><div id="dictSearchCount" class="dict-count" aria-live="polite">Saisis un mot pour commencer.</div><div id="dictSearchResults" class="dict-results"></div><button id="dictMore" class="secondary" type="button" hidden>Afficher davantage</button></section>
@@ -228,10 +229,10 @@ function applyGameLanguage(lang){
  history=Array.isArray(state.history)?state.history:[];
  used=state.used||{};completed=state.completed||{};
  $('gamePage').querySelector('h1').textContent=lang==='fr'?'MOTUS':'MOTUS ENGLISH';
- $('gamePage').querySelector('header small').textContent=lang==='fr'?'Jeu autonome · Version 1.42':'English · Common words & Aviation vocabulary · AZERTY';
+ $('gamePage').querySelector('header small').textContent=lang==='fr'?'Jeu autonome · Version 1.43':'English · Common words & Aviation vocabulary · AZERTY';
  $('gamePage').querySelector('footer').textContent=lang==='fr'?
- 'Version 1.42 : ODS 9 + Lexique 4.1. Historique et statistiques séparés par langue, mode, longueur et date.':
- 'Version 1.42 : vocabulaire anglais courant et aéronautique, clavier AZERTY. Propositions issues du dictionnaire anglais intégré. Définitions anglaises et traduction française pour les termes aéronautiques. Historique indépendant.';
+ 'Version 1.43 : ODS 9 + Lexique 4.1. Historique et statistiques séparés par langue, mode, longueur et date.':
+ 'Version 1.43 : vocabulaire anglais courant et aéronautique, clavier AZERTY. Propositions issues du dictionnaire anglais intégré. Définitions anglaises et traduction française pour les termes aéronautiques. Historique indépendant.';
  if(!restoreActiveRound())newGame();
 }
 let history=Array.isArray(saved.history)?saved.history:[],used=saved.used||{},completed=saved.completed||{},length=6,mode='normal',answer='',guesses=[],started=null,elapsed=0,ended=false,slot=0,rounds=1,series=0,seriesScore=0,advanceTimer=null,seriesResults=[];
@@ -279,12 +280,61 @@ function sound(kind){
  else if(kind==='win')playOriginal('motuswin');
  else if(kind==='lose')playOriginal('motusloose');
 }
+// Ambiances de vérification : les originaux MP3 restent inchangés.
+const soundProfiles=new Set(['classic','modern','retro','soft']);
+let soundProfile='classic';
+try{const saved=localStorage.getItem('motus-sound-profile');if(soundProfiles.has(saved))soundProfile=saved}catch{}
+const profileSelector=$('soundProfile');
+profileSelector.value=soundProfile;
+profileSelector.addEventListener('change',()=>{
+ soundProfile=soundProfiles.has(profileSelector.value)?profileSelector.value:'classic';
+ try{localStorage.setItem('motus-sound-profile',soundProfile)}catch{}
+ // Les sons du mot déjà en cours conservent leur synchronisation.
+ $('entry').focus();
+});
+const syntheticVoices=new Set();
+function playSyntheticReveal(status,profile){
+ const durations={modern:350,retro:380,soft:390};
+ const duration=durations[profile]||350;
+ try{
+  const AudioCtor=window.AudioContext||window.webkitAudioContext;
+  if(!AudioCtor)return duration;
+  audioContext ||= new AudioCtor();
+  if(audioContext.state==='suspended')audioContext.resume().catch(()=>{});
+  const now=audioContext.currentTime;
+  const volumeScale=Math.max(0,Math.min(1,soundVolume/100));
+  const colors={correct:0,present:1,absent:2};
+  const idx=colors[status]??2;
+  const presets={
+   modern:{wave:'sine',freq:[[660,880],[550,740],[310,230]],steps:[0,.14],gain:.12},
+   retro:{wave:'square',freq:[[784,988,1175],[587,740,880],[220,196,164]],steps:[0,.105,.22],gain:.045},
+   soft:{wave:'triangle',freq:[[523,659],[440,554],[330,277]],steps:[0,.17],gain:.055}
+  };
+  const preset=presets[profile];if(!preset)return duration;
+  const freqs=preset.freq[idx];
+  const osc=audioContext.createOscillator(),gain=audioContext.createGain();
+  osc.type=preset.wave;
+  for(let i=0;i<freqs.length;i++)osc.frequency.setValueAtTime(freqs[i],now+preset.steps[i]);
+  const level=preset.gain*volumeScale;
+  gain.gain.setValueAtTime(.0001,now);
+  gain.gain.linearRampToValueAtTime(Math.max(.0001,level),now+.018);
+  gain.gain.setValueAtTime(Math.max(.0001,level),now+duration/1000-.09);
+  gain.gain.exponentialRampToValueAtTime(.0001,now+duration/1000);
+  osc.connect(gain);gain.connect(audioContext.destination);
+  syntheticVoices.add(osc);
+  osc.onended=()=>{syntheticVoices.delete(osc);try{osc.disconnect();gain.disconnect()}catch{}};
+  osc.start(now);osc.stop(now+duration/1000+.02);
+ }catch{}
+ return duration;
+}
 let revealTimers=[];
 let soundRoundToken=0;
 let revealInProgress=false;
 let revealedTiles=0;
 function stopRevealSounds(){
  soundRoundToken++;
+ for(const osc of syntheticVoices){try{osc.stop()}catch{}}
+ syntheticVoices.clear();
  revealTimers.forEach(clearTimeout);revealTimers=[];
  revealInProgress=false;revealedTiles=0;
  for(const key of ['LR','LJ','LB']){
@@ -295,6 +345,10 @@ function stopRevealSounds(){
 function waitRevealSound(status,token){
  return new Promise(resolve=>{
   if(token!==soundRoundToken){resolve();return}
+  if(soundProfile!=='classic'){
+   const ms=(!soundEnabled||soundVolume===0)?190:playSyntheticReveal(status,soundProfile);
+   const t=setTimeout(resolve,ms);revealTimers.push(t);return;
+  }
   const name=status==='correct'?'LR':status==='present'?'LJ':'LB';
   const audio=soundPlayers[name];
   if(!soundEnabled||soundVolume===0||!audio){
